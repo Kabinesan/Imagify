@@ -3,6 +3,8 @@ import {
   registerUser,
   loginUser,
   userCredits,
+  payRazor,
+  verifyRazor,
 } from "../controllers/userController.js";
 import userAuth from "../middlewares/auth.js";
 
@@ -11,12 +13,7 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/credits", userAuth, userCredits);
+router.post("/pay", userAuth, payRazor);
+router.post("/verify", userAuth, verifyRazor);
 
 export default router;
-
-
-
-
-//  http://localhost:4000/api/user/register
-//  http://localhost:4000/api/user/login
-//  http://localhost:4000/api/user/credits
